@@ -6,25 +6,87 @@
     <parent>
         <groupId>de.eitco.cicd</groupId>
         <artifactId>eitco-oss-parent</artifactId>
-        <version>0.0.12</version>
+        <version>0.0.14-SNAPSHOT</version>
     </parent>
 
 
-    <!-- TODO: replace with your coordinates -->
-    <groupId>de.eitco</groupId>
-    <artifactId>eitco-maven-template</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>de.eitco.cicd</groupId>
+    <artifactId>helm-maven-plugin</artifactId>
+    <version>4.0.1-SNAPSHOT</version>
+    <packaging>maven-plugin</packaging>
 
     <developers>
-        <!-- TODO: add developers concerned -->
+        <developer>
+            <name>Jan Schwarz</name>
+            <email>jschwarz@eitco.de</email>
+        </developer>
+        <developer>
+            <name>Rudolf Kugel</name>
+            <email>rkugel@eitco.de</email>
+        </developer>
     </developers>
 
     <scm>
-        <!-- TODO: replace with your repository url -->
-        <url>https://github.com/eitco/maven-template.git</url>
-        <connection>scm:git:https://github.com/eitco/maven-template.git</connection>
-        <developerConnection>scm:git:https://github.com/eitco/maven-template.git</developerConnection>
+        <url>https://github.com/eitco/helm-maven-plugin.git</url>
+        <connection>scm:git:https://github.com/eitco/helm-maven-plugin.git</connection>
+        <developerConnection>scm:git:https://github.com/eitco/helm-maven-plugin.git</developerConnection>
     </scm>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>de.eitco.cicd</groupId>
+            <artifactId>eitco-maven-plugin-utility</artifactId>
+            <version>0.0.3-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-utils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>wagon-maven-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>${maven.resources.plugin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.deviceinsight.helm</groupId>
+            <artifactId>helm-maven-plugin</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.19</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
@@ -33,6 +95,21 @@
             </plugin>
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-invoker-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
