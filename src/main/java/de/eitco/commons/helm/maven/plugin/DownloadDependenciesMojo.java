@@ -45,9 +45,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * This goal downloads the helm dependencies configured to the {@code charts} directory.
+ */
 @Mojo(name = "dependency-update", defaultPhase = LifecyclePhase.PROCESS_SOURCES)
 public class DownloadDependenciesMojo extends AbstractHelmWagonMojo {
 
+    /**
+     * This parameter specifies a list of helm dependencies. These dependencies identify their remote
+     * location by a server id, referring to the keys of the map {@link AbstractHelmWagonMojo#helmRepositories}
+     */
     @Parameter
     private List<HelmDependency> helmDependencies = new ArrayList<>();
 

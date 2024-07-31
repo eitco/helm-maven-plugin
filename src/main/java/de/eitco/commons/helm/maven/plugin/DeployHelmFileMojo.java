@@ -16,15 +16,25 @@ import org.apache.maven.wagon.WagonException;
 
 import java.io.File;
 
+/**
+ * This goal deploys the generated helm package to a remote repository.
+ */
 @Mojo(name = "deploy-helm", defaultPhase = LifecyclePhase.DEPLOY)
 public class DeployHelmFileMojo extends AbstractHelmWagonMojo {
 
     /**
-     * settings.xml's server id for the URL. This is used when wagon needs extra authentication information.
+     * This parameter specifies the settings.xml's server id for the remote repository. It is used when for authentication.
      */
     @Parameter(property = "helm.distribution.server.id")
     private String distributionServerId;
 
+    /**
+     * This parameter overrides the file name to deploy. If not set the file name is derived from
+     * the config given.
+     * <br/>
+     * This parameter is deprecated - deriving the filename from the configuration is more convenient
+     * and straight forward.
+     */
     @Parameter
     @Deprecated
     private String artifactFile;

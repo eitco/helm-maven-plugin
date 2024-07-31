@@ -25,18 +25,33 @@ public abstract class AbstractHelmMojo extends AbstractMojo {
 
     public static final Pattern DISALLOWED_VERSION_CHARACTERS = Pattern.compile("[^A-Za-z0-9-.+]");
 
+    /**
+     * This parameter specifies the name of the helm chart.
+     */
     @Parameter(defaultValue = "${project.artifactId}", property = "helm.chart.name")
     private String chartName;
 
+    /**
+     * This parameter specifies the version of the helm chart.
+     */
     @Parameter(defaultValue = "${project.version}", property = "helm.chart.version")
     private String chartVersion;
 
+    /**
+     * This parameter specifies the version of the application contained in the helm chart.
+     */
     @Parameter(defaultValue = "${project.version}", property = "helm.app.version")
     private String appVersion;
 
+    /**
+     * This parameter specifies the type of the helm chart.
+     */
     @Parameter(defaultValue = "application", property = "helm.chart.type")
     private String chartType;
 
+    /**
+     * This parameter specifies the description of the helm chart.
+     */
     @Parameter(defaultValue = "${project.description}", property = "helm.chart.description")
     private String chartDescription;
 
@@ -46,6 +61,9 @@ public abstract class AbstractHelmMojo extends AbstractMojo {
     @Parameter(readonly = true, defaultValue = "${project.build.directory}")
     protected File targetDirectory;
 
+    /**
+     * This parameter specifies the directory where to put the sources of the helm chart.
+     */
     @Parameter(defaultValue = "src/main/helm", property = "helm.source.directory")
     protected File sourceDirectory;
 

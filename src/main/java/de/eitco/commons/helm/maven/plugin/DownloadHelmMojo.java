@@ -11,6 +11,9 @@ import com.deviceinsight.helm.ResolveHelmMojo;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 
+/**
+ * This goal downloads the helm executable specified.
+ */
 @Mojo(
     name = "download-helm",
     defaultPhase = LifecyclePhase.INITIALIZE

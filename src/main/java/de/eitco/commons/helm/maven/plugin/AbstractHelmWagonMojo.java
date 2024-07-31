@@ -48,9 +48,16 @@ public abstract class AbstractHelmWagonMojo extends AbstractHelmMojo {
     @Parameter(property = "wagon.skip")
     protected boolean skip = false;
 
+    /**
+     * This parameter specifies a map of helm repositories to read from and write to. To add credentials specify a
+     * {@link server} element in your maven {@code settings.xml} with the same id as the key in this map.
+     */
     @Parameter
     protected Map<String, String> helmRepositories = Map.of("charts.helm.sh", "https://charts.helm.sh/stable");
 
+    /**
+     * The id of the default repository in the map {@link #helmRepositories}.
+     */
     @Parameter(defaultValue = "charts.helm.sh")
     protected String defaultRepository;
 

@@ -22,10 +22,16 @@ import org.apache.maven.shared.filtering.MavenResourcesFiltering;
 
 import java.util.List;
 
+/**
+ * This goal generates the helm sources.
+ */
 @Mojo(name = "generate-helm-sources", threadSafe = true, defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class GenerateHelmSourcesMojo extends AbstractHelmMojo {
 
 
+    /**
+     * This parameter specifies the encoding to use.
+     */
     @Parameter(defaultValue = "${project.build.sourceEncoding}")
     protected String encoding;
 

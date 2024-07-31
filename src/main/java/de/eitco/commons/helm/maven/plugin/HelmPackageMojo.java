@@ -19,6 +19,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * This goal packages the helm project. It does so by simply calling {@code helm package} on the sources generated.
+ */
 @Mojo(name = "package", defaultPhase = LifecyclePhase.PACKAGE)
 public class HelmPackageMojo extends AbstractHelmMojo {
 
