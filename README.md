@@ -62,7 +62,10 @@ One required parameter needs to be set, though - the version of helm to use:
 </build>
 ```
 
-Now you can add your files in `src/main/helm`. Refer to the [integration test](./src/it/simple) for a simple example.
+Now you can add your files in `src/main/helm`. 
+
+* a complete reference about the goals and paramters of this plugin can be found [here](https://eitco.github.io/helm-maven-plugin/plugin-info.html).
+* Refer to the [integration test](./src/it/simple) for a simple example.
 
 > 📘 Note that there is no `Chart.yaml` file in this example. The plugin will generate this file by itself from values
 > configured in the `pom.xml`
